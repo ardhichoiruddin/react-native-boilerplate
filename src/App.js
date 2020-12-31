@@ -10,6 +10,7 @@ import HomeScreens from './screens/HomeScreens'
 import ProfilScreens from './screens/ProfilScreens'
 import NotificationScreens from './screens/NotificationScreens'
 import CategoriesScreens from './screens/CategoriesScreens'
+import OnBoardingScreens from './screens/OnBoaringScreens'
 
 const Screens = new Map()
 
@@ -17,6 +18,7 @@ Screens.set('Home', HomeScreens)
 Screens.set('Profil', ProfilScreens)
 Screens.set('Notification', NotificationScreens)
 Screens.set('Categories', CategoriesScreens)
+Screens.set('onBoarding', OnBoardingScreens)
 
 Screens.forEach((C, key) => {
     Navigation.registerComponent(key, () => gestureHandlerRootHOC(storeProvider(C)), () => C)

@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
+import { Navigation } from 'react-native-navigation'
 import { View, Text, StyleSheet, TextInput, TouchableHighlight } from 'react-native'
 import { connect } from 'react-redux'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 
 import { saveToken } from '../redux/actions/token'
 
-const HomeScreens = ({ addToken }) => {
+const HomeScreens = ({ addToken, componentId }) => {
 
     const [text, setText] = useState(null)
 
@@ -28,6 +29,19 @@ const HomeScreens = ({ addToken }) => {
                 underlayColor="#d62828"
             >
                 <Text style={styles.buttonText}>Save token</Text>
+            </TouchableHighlight>
+            <TouchableHighlight
+                style={styles.button2}
+                onPress={() =>{
+                    Navigation.push(componentId, {
+                        component:{
+                            name: 'onBoarding'
+                        }
+                    })
+                }}
+                underlayColor="#457b9d"
+            >
+                <Text style={styles.buttonText}>To OnBoarding</Text>
             </TouchableHighlight>
         </View>
     )
@@ -76,5 +90,12 @@ const styles = StyleSheet.create({
     buttonText: {
         color: '#fff',
         textAlign: 'center'
+    },
+    button2: {
+        backgroundColor: '#1d3557',
+        paddingVertical: 16,
+        paddingHorizontal: 14,
+        borderRadius: 6,
+        marginTop: 10
     }
 })
